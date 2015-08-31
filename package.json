@@ -1,0 +1,34 @@
+{
+  "name": "universal-auth",
+  "version": "0.1.0",
+  "description": "Universal Auth to be used when rendering on the server or client.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "lab -a code",
+    "dist": "browserify --standalone UniversalAuth lib/index.js > dist/universal-auth.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://poeticninja@github.com/poeticninja/universal-auth.git"
+  },
+  "author": "Saul Maddox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/poeticninja/universal-auth/issues"
+  },
+  "homepage": "https://github.com/poeticninja/universal-auth#readme",
+  "dependencies": {
+    "lodash.intersection": "~3.2.0",
+    "lodash.template": "~3.6.2"
+  },
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "code": "~1.5.0",
+    "lab": "~5.15.2"
+  },
+  "keywords": [
+    "Auth",
+    "Authorization",
+    "Authentication"
+  ]
+}

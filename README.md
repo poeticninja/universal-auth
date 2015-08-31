@@ -1,1 +1,1 @@
-# universal-auth
+# Universal Auth
