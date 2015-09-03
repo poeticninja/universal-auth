@@ -1,6 +1,6 @@
 {
   "name": "universal-auth",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Universal Auth to be used when rendering on the server or client.",
   "main": "lib/index.js",
   "scripts": {
@@ -18,8 +18,6 @@
   },
   "homepage": "https://github.com/poeticninja/universal-auth#readme",
   "dependencies": {
-    "lodash.intersection": "~3.2.0",
-    "lodash.template": "~3.6.2"
   },
   "devDependencies": {
     "browserify": "^11.0.1",
