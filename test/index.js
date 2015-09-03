@@ -3,7 +3,7 @@
 */
 var Code = require('code');
 var Lab = require('lab');
-var Auth = require('../lib/index.js');
+var Auth = require('../lib/index');
 
 // Test shortcuts
 var lab = exports.lab = Lab.script();
@@ -17,6 +17,7 @@ describe('auth', function(){
         var auth = Auth();
 
         var session = {
+            name: 'John Doe',
             scope: 'user'
         };
 
@@ -32,6 +33,7 @@ describe('auth', function(){
         var auth = Auth();
 
         var session = {
+            name: 'John Doe',
             scope: 'user'
         };
 
@@ -47,12 +49,14 @@ describe('auth', function(){
         var auth = Auth();
 
         var session = {
+            name: 'John Doe',
             scope: 'user'
         };
 
         auth.session.set(session);
         expect(auth.session.store.scope).to.equal(session.scope);
         auth.session.clear();
+        expect(auth.session.get()).to.be.null();
         expect(auth.session.store).to.be.null();
 
         done();
@@ -64,6 +68,7 @@ describe('auth', function(){
         var auth = Auth();
 
         var session = {
+            name: 'John Doe',
             scope: 'user'
         };
 
@@ -77,11 +82,30 @@ describe('auth', function(){
 
     });
 
+    it('session is authorized without scope', function(done) {
+
+        var auth = Auth();
+
+        var session = {
+            name: 'John Doe'
+        };
+
+        expect(auth.isAuthorized()).to.be.true();
+        expect(auth.isAuthorized(false)).to.be.true();
+        expect(auth.isAuthorized(true)).to.be.false();
+        auth.session.set(session);
+        expect(auth.isAuthorized(true)).to.be.true();
+
+        done();
+
+    });
+
     it('session is authorized single scope', function(done) {
 
         var auth = Auth();
 
         var session = {
+            name: 'John Doe',
             scope: 'user'
         };
 
@@ -129,5 +153,4 @@ describe('auth', function(){
         done();
 
     });
-
 });
